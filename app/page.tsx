@@ -127,6 +127,44 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "BookADoc",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "INR",
+              "lowPrice": "1000",
+              "highPrice": "30000"
+            },
+            "description": "Transform your healthcare practice with BookADoc. Automate appointment scheduling, billing, and patient communication.",
+            "featureList": [
+              "Smart Appointment System",
+              "Digital Billing",
+              "Real-time Analytics",
+              "WhatsApp Reminders",
+              "Role-based Dashboard"
+            ],
+            "provider": {
+              "@type": "Organization",
+              "name": "BookADoc",
+              "url": "https://bookadoc.com",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-8630632030",
+                "contactType": "Customer Service",
+                "email": "tarushagarwal2003@gmail.com"
+              }
+            }
+          })
+        }}
+      />
       <CustomCursor />
       {/* Hero Section */}
       <section
