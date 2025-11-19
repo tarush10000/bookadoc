@@ -113,7 +113,7 @@ export default function FeaturesPage() {
                             variant="outline"
                             className="min-w-[200px]"
                         >
-                            Visit Live Site
+                            Visit Live Demo
                         </Button>
                     </div>
                 </div>

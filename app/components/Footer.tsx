@@ -14,20 +14,6 @@ export default function Footer() {
                         <p className="text-muted-foreground leading-relaxed">
                             Automating healthcare practices with smart booking, billing, and analytics solutions.
                         </p>
-                        <div className="flex gap-4">
-                            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Facebook size={20} />
-                            </a>
-                            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Twitter size={20} />
-                            </a>
-                            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Instagram size={20} />
-                            </a>
-                            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                                <Linkedin size={20} />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -51,7 +37,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <a href="https://appointment.dranjaligupta.in/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                                    Live Site
+                                    Live Demo
                                 </a>
                             </li>
                         </ul>
@@ -61,24 +47,14 @@ export default function Footer() {
                     <div>
                         <h3 className="font-bold text-foreground mb-6">Company</h3>
                         <ul className="space-y-4">
-                            <li>
+                            {/* <li>
                                 <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
                                     About Us
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">
                                     Contact
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-                                    Privacy Policy
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-                                    Terms of Service
                                 </Link>
                             </li>
                         </ul>

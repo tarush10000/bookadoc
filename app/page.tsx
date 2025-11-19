@@ -198,7 +198,7 @@ export default function Home() {
               variant="outline"
               className="min-w-[200px] h-14 text-lg border-primary/50 hover:bg-primary/5"
             >
-              Visit Live Site <ArrowRight className="ml-2 w-5 h-5" />
+              Visit Live Demo <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button
               href="/demo"

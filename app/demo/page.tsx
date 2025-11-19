@@ -62,14 +62,14 @@ export default function DemoPage() {
                                 Want to explore on your own?
                             </h3>
                             <p className="text-muted-foreground mb-6">
-                                You can visit our live working site to see the patient booking experience.
+                                You can visit our live working demo to see the patient booking experience.
                             </p>
                             <Button
                                 href="https://appointment.dranjaligupta.in"
                                 variant="outline"
                                 className="w-full sm:w-auto"
                             >
-                                Visit Live Site <ArrowRight className="ml-2 w-5 h-5" />
+                                Visit Live Demo <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </div>
                     </div>

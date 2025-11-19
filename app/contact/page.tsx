@@ -50,7 +50,7 @@ export default function ContactPage() {
                                 Live Demo
                             </h2>
                             <p className="text-muted-foreground mb-4 leading-relaxed">
-                                See BookADoc in action at our live working site:
+                                See BookADoc in action at our live working demo:
                             </p>
                             <a
                                 href="https://appointment.dranjaligupta.in"
