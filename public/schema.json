@@ -19,7 +19,7 @@
         "WhatsApp Reminders",
         "Role-based Dashboard"
     ],
-    "screenshot": "https://bookadoc.com/og-image.png",
+    "screenshot": "https://bookadoc-xi.vercel.app/og-image.png",
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
@@ -29,7 +29,7 @@
         "@type": "Organization",
         "name": "BookADoc",
         "url": "https://bookadoc.com",
-        "logo": "https://bookadoc.com/logo.png",
+        "logo": "https://bookadoc-xi.vercel.app/logo.png",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91-8630632030",

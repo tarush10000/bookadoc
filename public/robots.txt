@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://bookadoc.com/sitemap.xml
+Sitemap: https://bookadoc-xi.vercel.app/sitemap.xml
