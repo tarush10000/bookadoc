@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 interface PricingCardProps {
@@ -20,10 +21,15 @@ export default function PricingCard({
     trial,
 }: PricingCardProps) {
     return (
-        <div
-            className={`bg-card text-card-foreground rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden ${highlighted
-                    ? 'border-2 border-primary ring-4 ring-primary/10'
-                    : 'border border-border'
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ y: -10 }}
+            className={`bg-card text-card-foreground rounded-3xl p-10 shadow-lg hover:shadow-2xl transition-shadow duration-500 relative overflow-hidden ${highlighted
+                ? 'border-2 border-primary ring-4 ring-primary/10'
+                : 'border border-border'
                 }`}
         >
             {highlighted && (
@@ -67,6 +73,6 @@ export default function PricingCard({
                     {trial}
                 </p>
             )}
-        </div>
+        </motion.div>
     );
 }

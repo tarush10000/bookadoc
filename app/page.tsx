@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   BarChart3,
@@ -11,7 +12,7 @@ import {
   TrendingUp,
   Zap
 } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import BackgroundPattern from './components/BackgroundPattern';
 import { Button } from './components/Button';
 import ContactForm from './components/ContactForm';
@@ -22,26 +23,6 @@ import PricingCard from './components/PricingCard';
 
 export default function Home() {
   const [pricingPeriod, setPricingPeriod] = useState<'monthly' | 'yearly'>('monthly');
-  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-scroll');
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    sectionsRef.current.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   const monthlyPricing = [
     {
@@ -168,9 +149,6 @@ export default function Home() {
       <CustomCursor />
       {/* Hero Section */}
       <section
-        ref={(el) => {
-          sectionsRef.current[0] = el;
-        }}
         className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden"
       >
         <BackgroundPattern />
@@ -178,21 +156,41 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center z-10 relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-background/30 backdrop-blur-3xl -z-10 rounded-full blur-3xl opacity-50" />
 
-          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide animate-fade-in">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-block mb-4 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-medium tracking-wide"
+          >
             The Future of Healthcare Management
-          </div>
+          </motion.div>
 
-          <h1 className="text-7xl md:text-9xl font-black text-foreground mb-8 tracking-tighter animate-fade-in">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-7xl md:text-9xl font-black text-foreground mb-8 tracking-tighter"
+          >
             <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
               BOOKADOC
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-2xl md:text-4xl text-muted-foreground font-light mb-12 tracking-wide animate-slide-up stagger-1 max-w-3xl mx-auto leading-tight">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-2xl md:text-4xl text-muted-foreground font-light mb-12 tracking-wide max-w-3xl mx-auto leading-tight"
+          >
             Your <span className="text-primary font-medium">one-stop</span> booking & billing solution for modern clinics.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up stagger-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          >
             <Button
               href="https://appointment.dranjaligupta.in"
               variant="outline"
@@ -207,15 +205,12 @@ export default function Home() {
             >
               Request Demo
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Problems Worth Solving */}
       <section
-        ref={(el) => {
-          sectionsRef.current[1] = el;
-        }}
         className="py-32 px-6 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
@@ -233,12 +228,16 @@ export default function Home() {
               'Low patient engagement',
               'Time-consuming admin tasks',
             ].map((problem, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-card text-card-foreground p-10 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-border group"
               >
                 <p className="text-lg font-semibold text-center group-hover:text-primary transition-colors">{problem}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -246,12 +245,15 @@ export default function Home() {
 
       {/* Our Big Idea */}
       <section
-        ref={(el) => {
-          sectionsRef.current[2] = el;
-        }}
         className="py-40 px-6"
       >
-        <div className="max-w-5xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="max-w-5xl mx-auto text-center"
+        >
           <h2 className="text-4xl md:text-6xl font-black text-foreground mb-10 tracking-tight">
             Our Big Idea
           </h2>
@@ -263,14 +265,11 @@ export default function Home() {
             platform that handles everything from appointment scheduling to billing,
             with real-time analytics and automated patient communication.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Core Features */}
       <section
-        ref={(el) => {
-          sectionsRef.current[3] = el;
-        }}
         className="py-32 px-6 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
@@ -312,9 +311,6 @@ export default function Home() {
 
       {/* Key Benefits */}
       <section
-        ref={(el) => {
-          sectionsRef.current[4] = el;
-        }}
         className="py-32 px-6"
       >
         <div className="max-w-7xl mx-auto">
@@ -325,7 +321,13 @@ export default function Home() {
             Transform your practice
           </p>
           <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300"
+            >
               <div className="text-primary mb-6 flex justify-center">
                 <Zap className="w-16 h-16" />
               </div>
@@ -335,8 +337,14 @@ export default function Home() {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Reduce administrative overhead by up to 70% with automated workflows
               </p>
-            </div>
-            <div className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300"
+            >
               <div className="text-primary mb-6 flex justify-center">
                 <Smile className="w-16 h-16" />
               </div>
@@ -346,8 +354,14 @@ export default function Home() {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Keep patients informed with real-time updates and easy booking
               </p>
-            </div>
-            <div className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300">
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-center p-8 rounded-3xl hover:bg-muted/30 transition-colors duration-300"
+            >
               <div className="text-primary mb-6 flex justify-center">
                 <TrendingUp className="w-16 h-16" />
               </div>
@@ -357,16 +371,13 @@ export default function Home() {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 Make informed decisions with comprehensive analytics and reports
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Pricing Preview */}
       <section
-        ref={(el) => {
-          sectionsRef.current[5] = el;
-        }}
         className="py-32 px-6 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto">
@@ -427,9 +438,6 @@ export default function Home() {
 
       {/* Contact Section */}
       <section
-        ref={(el) => {
-          sectionsRef.current[6] = el;
-        }}
         className="py-32 px-6"
       >
         <div className="max-w-5xl mx-auto">

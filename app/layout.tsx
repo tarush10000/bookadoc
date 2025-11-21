@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import CustomCursor from "./components/CustomCursor";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import SmoothScroll from "./components/SmoothScroll";
 import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
 
@@ -95,10 +96,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CustomCursor />
-          <Header />
-          {children}
-          <Footer />
+          <SmoothScroll>
+            <CustomCursor />
+            <Header />
+            {children}
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
